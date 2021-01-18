@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Acer\\source\\repos\\Leave Management System\\Authenticate\\Authenticate.csproj": {}
+    "C:\\Users\\Acer\\Documents\\GitHub\\LMS\\Authenticate\\Authenticate.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Acer\\source\\repos\\Leave Management System\\Authenticate\\Authenticate.csproj": {
+    "C:\\Users\\Acer\\Documents\\GitHub\\LMS\\Authenticate\\Authenticate.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Acer\\source\\repos\\Leave Management System\\Authenticate\\Authenticate.csproj",
+        "projectUniqueName": "C:\\Users\\Acer\\Documents\\GitHub\\LMS\\Authenticate\\Authenticate.csproj",
         "projectName": "Authenticate",
-        "projectPath": "C:\\Users\\Acer\\source\\repos\\Leave Management System\\Authenticate\\Authenticate.csproj",
+        "projectPath": "C:\\Users\\Acer\\Documents\\GitHub\\LMS\\Authenticate\\Authenticate.csproj",
         "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Acer\\source\\repos\\Leave Management System\\Authenticate\\obj\\",
+        "outputPath": "C:\\Users\\Acer\\Documents\\GitHub\\LMS\\Authenticate\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",

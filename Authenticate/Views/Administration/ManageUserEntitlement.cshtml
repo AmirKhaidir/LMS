@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Authenticate.ViewModels.ManageEntitlementViewModel>
+
+@{
+    ViewData["Title"] = "Manage User Entitlement";
+}
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Type)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Entitlement)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Taken)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Balance)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Type)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Entitlement)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Taken)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Balance)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <form method="post">
+
+        <input type="submit" value="Update" class="btn btn-primary"
+               style="width:auto" />
+    </form>

@@ -1,0 +1,54 @@
+﻿@model Authenticate.Models.ApplyOnBehalfModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>ApplyOnBehalfModel</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EmpName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EmpName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DateApply)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DateApply)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DateApply2)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DateApply2)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Session)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Session)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LeaveType)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LeaveType)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NameOnBehalf)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NameOnBehalf)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

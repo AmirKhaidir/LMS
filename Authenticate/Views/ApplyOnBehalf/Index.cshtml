@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Authenticate.Models.ApplyOnBehalfModel>
+@inject SignInManager<ApplicationUser> signInManager;
+
+@{
+    ViewData["Title"] = "Apply On Behalf";
+}
+
+<h1>
+    Apply On-Behalf
+</h1>
+<h2>History</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">New Apply On Behalf</a>
+</p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EmpName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubmittedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateApply)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateApply2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Session)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LeaveType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NameOnBehalf)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmpName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubmittedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateApply)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateApply2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Session)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LeaveType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameOnBehalf)
+            </td>
+            @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+            {
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            }
+        </tr>
+        }
+    </tbody>
+</table>

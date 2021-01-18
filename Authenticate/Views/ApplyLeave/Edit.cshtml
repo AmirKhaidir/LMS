@@ -1,0 +1,69 @@
+﻿@model Authenticate.Models.ApplyLeaveModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>ApplyLeaveModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="EmpId"/>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input readonly asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LeaveType" class="control-label"></label>
+                <input  readonly asp-for="LeaveType" class="form-control" />
+                <span asp-validation-for="LeaveType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StartDate" class="control-label"></label>
+                <input readonly asp-for="StartDate" class="form-control" />
+                <span asp-validation-for="StartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EndDate" class="control-label"></label>
+                <input readonly asp-for="EndDate" class="form-control" />
+                <span asp-validation-for="EndDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Approve" class="control-label"></label>
+                <select asp-for="Approve" class="form-control" >
+                    <option disabled>Waiting</option>
+                    <option>Approved</option>
+                    <option>Not Approved</option>
+                </select>
+                <span asp-validation-for="Approve" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ApproveBy" class="control-label"></label>
+                <input asp-for="ApproveBy" class="form-control" />
+                <span asp-validation-for="ApproveBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Session" class="control-label"></label>
+                <input readonly asp-for="Session" class="form-control" />
+                <span asp-validation-for="Session" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" asp-route-empId="@Model.EmpId" value="Approve" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="AdminEdit">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

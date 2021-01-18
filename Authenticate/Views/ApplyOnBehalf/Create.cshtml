@@ -1,0 +1,70 @@
+﻿@model Authenticate.Models.ApplyOnBehalfModel
+
+@{
+    ViewData["Title"] = "Apply On Behalf";
+}
+
+<h4>New Apply On Behalf</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="EmpName" class="control-label"></label>
+                <input asp-for="EmpName" class="form-control" />
+                <span asp-validation-for="EmpName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateApply" class="control-label"></label>
+                <input asp-for="DateApply" class="form-control" />
+                <span asp-validation-for="DateApply" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateApply2" class="control-label"></label>
+                <input asp-for="DateApply2" class="form-control" />
+                <span asp-validation-for="DateApply2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Session" class="control-label"></label>
+                <select id="select3" asp-for="Session" class="form-control">
+                    <option selected disabled>Select Session</option>
+                    <option>Full-Day</option>
+                    <option>Half-Day(a.m)</option>
+                    <option>Half-Day(p.m)</option>
+                </select>
+                <span asp-validation-for="Session" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LeaveType" class="control-label"></label>
+                <select id="select1" asp-for="LeaveType" class="form-control">
+                    <option selected disabled>Select Leave Type</option>
+                    <option>Annual Leave</option>
+                    <option>Emergency</option>
+                    <option>Paternity Leave</option>
+                    <option>Maternity Leave</option>
+                    <option>Marriage Leave</option>
+                    <option>Pilgrimage Leave</option>
+                    <option>Compassionate Leave</option>
+                </select>
+                <span asp-validation-for="LeaveType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NameOnBehalf" class="control-label"></label>
+                <input asp-for="NameOnBehalf" class="form-control" />
+                <span asp-validation-for="NameOnBehalf" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,35 @@
+﻿@model Authenticate.Models.EntitlementModel
+@{
+    ViewData["Title"] = "Add Entitlement";
+}
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <form method="post">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <input type="hidden" asp-for="EmpId" />
+
+                <div class="form-group">
+                    <label asp-for="Type"></label>
+                    <select asp-for="Type" class="form-control">
+                        <option disabled>Select Type</option>
+                        <option>Annual</option>
+                        <option>Emergency</option>
+                        <option>Medical</option>
+                        <option>Other</option>
+                    </select>
+                    <span asp-validation-for="Type" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Entitlement"></label>
+                    <input asp-for="Entitlement" class="form-control" />
+                    <span asp-validation-for="Entitlement" class="text-danger"></span>
+                </div>
+                <button type="submit" class="btn btn-primary">Add</button>
+                <a asp-action="ListUser" class="btn btn-primary">Cancel</a>
+            </form>
+
+        </div>
+
+    </div>

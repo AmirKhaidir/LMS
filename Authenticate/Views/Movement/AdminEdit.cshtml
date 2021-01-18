@@ -1,0 +1,86 @@
+﻿@model IEnumerable<Authenticate.Models.MovementModel>
+@inject SignInManager<ApplicationUser> signInManager;
+
+@{
+    ViewData["Title"] = "Movement";
+}
+
+<h1>Movement </h1>
+
+<h2>History</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Action)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimeIn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimeOut)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateSubmitted)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Action)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Code)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TimeIn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TimeOut)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Location)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateSubmitted)
+                </td>
+
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.EmployeeId">Approve</a> |
+                        <a asp-action="AdminDetails" asp-route-id="@item.EmployeeId">Details</a> |
+                        <a asp-action="AdminDelete" asp-route-id="@item.EmployeeId">Delete</a>
+                    </td>
+
+
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,137 @@
+﻿@model Authenticate.ViewModels.OtherLeaveViewModel
+@inject SignInManager<ApplicationUser> signInManager;
+
+@{
+    ViewData["Title"] = "Other Leave";
+}
+
+<h1>
+    Other Leave
+</h1>
+<h2>History</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">New Other Leave</a>
+</p>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Entitlement)
+            </th>
+        </tr>
+        <tr>
+            <th>
+                Year
+            </th>
+            <th>
+                Type
+            </th>
+            <th>
+                Total
+            </th>
+            <th>
+                Taken
+            </th>
+            <th>
+                Balance
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Entitlement)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Year)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Entitlement)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Taken)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Balance)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Other)
+            </th>
+
+        </tr>
+        <tr>
+            <th>
+
+                Leave Type
+            </th>
+            <th>
+                Start Date
+
+            </th>
+            <th>
+                End Date
+
+            </th>
+            <th>
+                Reason
+
+            </th>
+            <th>
+                File Name
+
+            </th>
+            <th>
+                FilePath
+
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Other)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LeaveType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Reason)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FileName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FilePath)
+                </td>
+
+                @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                {
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>

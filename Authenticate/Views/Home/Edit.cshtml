@@ -1,0 +1,64 @@
+﻿
+@model Authenticate.ViewModels.EmployeeEditViewModel
+
+@{
+    ViewData["Title"] = "Edit Employee";
+    var photoPath = "~/Images/" + (Model.ExistingPhotoPath ?? "coronavirus.png");
+}
+
+<h1>Create Employee</h1>
+
+<div class="row">
+    <div class="col-md-12">
+        <form enctype="multipart/form-data" asp-controller="Home" asp-action="Edit" method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <input hidden asp-for="Id" />
+            <input hidden asp-for="ExistingPhotoPath" />
+
+            <div class="form-group">
+                <label asp-for="Name"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Department"></label>
+                <select asp-for="Department" asp-items="Html.GetEnumSelectList<Dept>()" class="form-control">
+                    <option value="">Please Select</option>
+                </select>
+                <span asp-validation-for="Department" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Photo" class="col-sm-2 col-form-label"> </label>
+
+                <div class="custom-file">
+                    <input asp-for="Photo" class="form-control custom-file-input" />
+                    <label class="custom-file-label">Click here to change photo....</label>
+                    <span asp-validation-for="Photo" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <img src="@photoPath" class="imageThumbnail" asp-append-version="true" />
+            </div>
+            <button type="submit" class="btn btn-primary">Update</button>
+            <a asp-controller="Home" asp-action="Index" class="btn btn-primary">Cancel</a>
+        </form>
+    </div>
+
+</div>
+
+@section Scripts{
+    <script>
+     $(document).ready(function () {
+                $('.custom-file-input').on("change", function () {
+                    var fileName = $(this).val().split("\\").pop();
+                    $(this).next('.custom-file-label').html(fileName);
+                });
+            });
+    </script>
+}
+

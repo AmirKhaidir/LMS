@@ -1,0 +1,89 @@
+﻿@model Authenticate.ViewModels.EmployeeOnLeaveViewModel;
+
+
+@{
+    ViewData["Title"] = "Employee On Leave";
+}
+
+<h1>Employee On Leave</h1>
+
+<form asp-controller="EmployeeOnLeave" asp-action="Index" method="get">
+    <p>
+        <label asp-for="Date">Select Date: </label>
+        <input asp-for="Date"/>
+        <input type="submit" value="Show" />
+    </p>
+</form>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                Full Name
+            </th>
+            <th>
+                Start Date
+            </th>
+            <th>
+                End Date
+            </th>
+            <th>
+                Leave Type
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ApplyLeave)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LeaveType)
+                </td>
+            </tr>
+        }
+        @foreach (var item in Model.MedicalLeave)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LeaveType)
+                </td>
+            </tr>
+        }
+        @foreach (var item in Model.OtherLeave)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LeaveType)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

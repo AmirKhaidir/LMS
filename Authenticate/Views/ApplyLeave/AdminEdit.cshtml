@@ -1,0 +1,76 @@
+﻿@model Authenticate.ViewModels.ApplyLeaveViewModel
+@inject SignInManager<ApplicationUser> signInManager;
+
+@{
+    ViewData["Title"] = "Approve Leave";
+}
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                <b>@Html.DisplayNameFor(model => model.Apply)</b>
+            </th>
+
+        </tr>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Leave Type
+            </th>
+            <th>
+                Start Date
+            </th>
+            <th>
+                End Date
+            </th>
+            <th>
+                Status
+            </th>
+            <th>
+                Approve By
+            </th>
+            <th>
+                Session
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Apply)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LeaveType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Approve)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApproveBy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Session)
+                </td>
+
+                <td>
+                    <a asp-action="Edit" asp-route-empId="@item.EmpId">Approve</a> |
+                    <a asp-action="AdminDetails" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+
+
+            </tr>
+        }
+    </tbody>
+</table>

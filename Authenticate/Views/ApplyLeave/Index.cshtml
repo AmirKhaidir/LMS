@@ -1,0 +1,135 @@
+﻿@model Authenticate.ViewModels.ApplyLeaveViewModel
+@inject SignInManager<ApplicationUser> signInManager;
+
+
+@{
+    ViewData["Title"] = "Apply Leave";
+}
+
+<h1>
+    Apply Leave
+</h1>
+<h2>History</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">New Apply Leave</a>
+</p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Entitlement)
+            </th>
+        </tr>
+        <tr>
+            <th>
+                Year
+            </th>
+            <th>
+                Type
+            </th>
+            <th>
+                Total
+            </th>
+            <th>
+                Taken
+            </th>
+            <th>
+                Balance
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Entitlement)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Year)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Entitlement)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Taken)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Balance)
+                </td>
+            </tr>
+            }
+    </tbody>
+</table>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                <b>@Html.DisplayNameFor(model => model.Apply)</b>
+            </th>
+            
+        </tr>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Leave Type
+            </th>
+            <th>
+                Start Date
+            </th>
+            <th>
+                End Date
+            </th>
+            <th>
+                Status
+            </th>
+            <th>
+                Approve By
+            </th>
+            <th>
+                Session
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Apply)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LeaveType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Approve)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApproveBy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Session)
+                </td>
+
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+
+
+            </tr>
+        }
+    </tbody>
+</table>
+
